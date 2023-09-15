@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
@@ -23,3 +23,5 @@ function App() {
 }
 
 export default App;
+
+// Da usare si POSTMAN https://api.openweathermap.org/data/2.5/weather?lat=45.5797149&lon=9.234787&appid=ed5e7a68fb01f97b272448336b7b666b

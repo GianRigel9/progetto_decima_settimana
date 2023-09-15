@@ -1,6 +1,7 @@
 const MyCard = (props) => {
   return (
     <div className="d-flex flex-column gap-3 align-items-center">
+      {console.log("le mie props mycard", props)}
       <h5>{props.day}</h5>
       <div
         style={{

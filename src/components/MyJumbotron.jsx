@@ -1,40 +1,14 @@
 // import { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
-
-import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const MyJumbotron = () => {
-  const dispatch = useDispatch();
   //   const city = useSelector((state) => state.city);
   const isLoadingHTML = useSelector((state) => state.isLoadingHTML);
-  const isLoadingWeather = useSelector((state) => state.isLoadingWeather);
   const search = useSelector((state) => state.search);
   const weather = useSelector((state) => state.weather);
 
-  const fetchWeather = async () => {
-    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${search[0].lat}&lon=${search[0].lon}&appid=ed5e7a68fb01f97b272448336b7b666b`;
-    // const URL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=20&appid=ed5e7a68fb01f97b272448336b7b666b`;
-
-    if (isLoadingWeather) {
-      try {
-        const resp = await fetch(URL);
-        if (resp.ok) {
-          const parsebody = await resp.json();
-          dispatch({ type: "ADD_PARSEBODY_WEATHER", payload: parsebody });
-          // console.log(parsebody);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-
-  useEffect(() => {
-    fetchWeather();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoadingWeather]);
   return (
     <>
       {isLoadingHTML ? (

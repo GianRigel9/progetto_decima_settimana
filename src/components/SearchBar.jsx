@@ -7,6 +7,44 @@ const SearchBar = () => {
   const [query, setQuery] = useState("");
   const city = useSelector((state) => state.city);
   const isLoadingCity = useSelector((state) => state.isLoadingCity);
+  const search = useSelector((state) => state.search);
+  const isLoadingNextDays = useSelector((state) => state.isLoadingNextDays);
+  const isLoadingWeather = useSelector((state) => state.isLoadingWeather);
+
+  const fetchNextDays = async () => {
+    const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${search[0].lat}&lon=${search[0].lon}&appid=ed5e7a68fb01f97b272448336b7b666b`;
+
+    // const URL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=20&appid=ed5e7a68fb01f97b272448336b7b666b`;
+
+    try {
+      const resp = await fetch(URL);
+      if (resp.ok) {
+        const parsebody = await resp.json();
+
+        // parsebody.list.map(elem => elem.dt === 1694872800 || elem.dt === 1694959200  || elem.dt === 1695045600 || elem.dt === 1695132000 || elem.dt === 1695218400 )
+        dispatch({ type: "ADD_PARSEBODY_NEXTDAYS", payload: parsebody });
+        // console.log(parsebody);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchWeather = async () => {
+    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${search[0].lat}&lon=${search[0].lon}&appid=ed5e7a68fb01f97b272448336b7b666b`;
+    // const URL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=20&appid=ed5e7a68fb01f97b272448336b7b666b`;
+
+    try {
+      const resp = await fetch(URL);
+      if (resp.ok) {
+        const parsebody = await resp.json();
+        dispatch({ type: "ADD_PARSEBODY_WEATHER", payload: parsebody });
+        // console.log(parsebody);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,7 +60,12 @@ const SearchBar = () => {
       if (resp.ok) {
         const parsebody = await resp.json();
         dispatch({ type: "ADD_PARSEBODY_CITY", payload: parsebody[0] });
-        // console.log(parsebody);
+        if (await isLoadingWeather) {
+          fetchWeather();
+        }
+        if (await isLoadingNextDays) {
+          fetchNextDays();
+        }
       }
     } catch (error) {
       console.log(error);

@@ -1,43 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/*-------------------------------------------------------------------*/
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"); */
 
 h1,
 h2,
@@ -49,7 +10,411 @@ p {
   margin: 0 !important;
 }
 
+.fc {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-page {
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+}
+
+.first-page > div.fc {
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.first-page > div.fc h1 {
+  font-size: 8rem !important;
+  font-weight: 300 !important;
+}
+
+.first-page > div.fc p {
+  font-size: 3rem !important;
+  font-weight: 300 !important;
+  text-align: center;
+}
+
+.first-page form {
+  display: flex;
+  height: fit-content;
+}
+
+.my-searchbar {
+  position: relative;
+}
+
+.my-navbar {
+  padding-inline: 48px;
+}
+
+.my-navbar > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my-navbar > div > div span {
+  font-weight: 400;
+}
+
+.tx-c {
+  text-align: center;
+}
+
+.my-jumbo {
+  padding: 48px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+.my-jumbo > div {
+  display: flex;
+  padding-inline: 24px;
+}
+
+.my-jumbo div.first-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.my-jumbo div.first-div > div {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.my-jumbo div.first-div div.fc {
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.my-jumbo div.first-div img {
+  width: 150px;
+  height: 150px;
+}
+
+.my-jumbo div.sec-div {
+  min-width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.my-jumbo div.sec-div div.fc {
+  gap: 0.5rem;
+}
+
+.my-jumbo div.sec-div div.fc div {
+  display: flex;
+  gap: 1rem;
+}
+
+.my-cards-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 48px;
+  margin-inline: 35px;
+  border-radius: 2rem;
+  background-color: #32383d;
+}
+
+.my-card {
+  align-items: center;
+  gap: 1rem;
+}
+
+.my-card img {
+  width: 100px;
+  height: 100px;
+}
+
+h1 {
+  font-size: 4.5rem !important;
+  font-weight: bold !important;
+}
+
+h2 {
+  font-size: 7rem !important;
+}
+
+.info {
+  width: 100%;
+  padding-inline: 50px;
+  text-align: center;
+  color: #32383d;
+}
+
 .p-style {
+  margin-left: 8px !important;
   font-size: 20px;
   font-weight: 500;
+}
+
+.gen-color-body {
+  background-color: #596681;
+  color: white;
+  min-height: 100vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* font-family: "Roboto", sans-serif; */
+}
+
+.list-group-style {
+  background-color: #596681 !important;
+  border: 1px solid #737b8a !important;
+  padding: 0 !important;
+}
+
+.list-group-style .cust-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 12px 36px;
+  font-size: 24px;
+}
+
+.list-group-style .cust-link-small {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 8px 24px;
+  font-size: 18px;
+}
+
+.list-group-style:hover {
+  background-color: #26385d !important;
+}
+
+.list-group-style .cust-link:hover {
+  color: #81b3ff;
+  font-weight: 500;
+}
+
+.my-list-group {
+  text-align: center;
+  padding-inline: 50px !important;
+}
+
+.my-list-group-abs {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 1160px) {
+  .first-page > div.fc h1 {
+    font-size: 6rem !important;
+  }
+  .first-page > div.fc p {
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 888px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+
+  .my-navbar > div {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .my-navbar > div > div {
+    text-align: center;
+  }
+
+  .my-navbar .p-style {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .my-searchbar {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 5rem !important;
+  }
+
+  .my-jumbo {
+    margin-block: 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .my-jumbo .p-style {
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .my-jumbo div.first-div img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .my-jumbo div.first-div div.fc {
+    margin-bottom: 21px;
+  }
+
+  .my-jumbo div.sec-div div.fc {
+    gap: 0.4rem;
+  }
+
+  .gen-color-body {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .my-cards-list {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-bottom: 15px;
+  }
+
+  .my-card {
+    width: 100%;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .my-jumbo {
+    padding-block: 25px;
+  }
+
+  .my-jumbo > div {
+    flex-direction: column;
+  }
+
+  .my-jumbo div.sec-div div.fc {
+    padding-top: 5px;
+    padding-bottom: 8px;
+    width: 100%;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .my-card .description {
+    display: none;
+  }
+
+  .gen-color-body {
+    padding: 25px 12px 30px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .my-jumbo div.sec-div div.fc {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .my-jumbo div.sec-div div.fc div:nth-of-type(2) {
+    align-self: center;
+  }
+
+  .my-jumbo div.sec-div div.fc div:last-of-type {
+    align-self: flex-end;
+  }
+
+  .description-jumb {
+    display: none;
+  }
+
+  .my-cards-list {
+    padding-block: 40px;
+  }
+
+  .my-card {
+    flex-direction: column;
+    padding-block: 25px;
+    border-bottom: 1px solid #677c8b;
+  }
+
+  .my-card:first-of-type {
+    padding-top: 0;
+  }
+
+  .my-card:last-of-type {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .my-card img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .first-page > div.fc h1 {
+    font-size: 4.5rem !important;
+  }
+  .first-page > div.fc p {
+    font-size: 1.5rem !important;
+  }
+
+  .my-list-group div a {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .first-page > div.fc h1 {
+    font-size: 4rem !important;
+  }
+  .first-page > div.fc p {
+    font-size: 1.2rem !important;
+  }
+
+  .my-list-group div a {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .my-jumbo div.first-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .my-jumbo div.first-div div.fc {
+    margin-bottom: 7px;
+  }
+
+  .my-jumbo div.sec-div {
+    width: auto;
+  }
+
+  .my-jumbo div.sec-div div.fc div:first-of-type,
+  .my-jumbo div.sec-div div.fc div:nth-of-type(2),
+  .my-jumbo div.sec-div div.fc div:last-of-type {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .first-page > div.fc h1 {
+    font-size: 3rem !important;
+  }
+  .first-page > div.fc p {
+    font-size: 1rem !important;
+  }
+
+  .my-list-group div a {
+    font-size: 1rem !important;
+  }
 }

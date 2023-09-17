@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 import SelectLocation from "./SelectLocation";
 
-const SearchBar = () => {
+const FirstPage = () => {
   const [query, setQuery] = useState("");
   // const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -27,24 +27,34 @@ const SearchBar = () => {
     }
   };
   return (
-    <div className="fc my-searchbar">
-      <Form onSubmit={handleSubmit}>
-        <Form.Control
-          type="Search"
-          placeholder="Search"
-          aria-label="Search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </Form>
-      {arrLocations.length !== 0 ? (
-        <>
-          <SelectLocation arrLocations={arrLocations[0]} boolean={false} />
-        </>
+    <>
+      <div className="fc first-page">
+        <div className="fc">
+          <h1>Welcome</h1>
+          <p>Write the name of your locality to see the weather</p>
+        </div>
+        <Form onSubmit={handleSubmit}>
+          <Form.Control
+            type="Search"
+            placeholder="Search"
+            aria-label="Search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+        </Form>
+      </div>
+      {arrLocations.length === 0 ? (
+        <div className="d-flex justify-content-center p-5 gap-3">
+          <span style={{ fontSize: "22px" }}>Waiting for your locality</span>
+          <Spinner animation="border" variant="light" />
+        </div>
       ) : (
-        ""
+        <>
+          <SelectLocation arrLocations={arrLocations[0]} boolean={true} />
+        </>
       )}
-    </div>
+    </>
   );
 };
-export default SearchBar;
+
+export default FirstPage;

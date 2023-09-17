@@ -1,17 +1,22 @@
-import { useSelector } from "react-redux";
 import SearchBar from "./SearchBar";
 
-const MyNavbar = () => {
-  const city = useSelector((state) => state.city);
+const MyNavbar = (props) => {
   const oggi = new Date().toLocaleDateString("it-IT");
+  // console.log("fhslfjbalsjbf", location);
   return (
-    <div className="d-flex flex-column px-5 gap-1">
-      <div className="d-flex align-items-center justify-content-between">
-        <h1 style={{ fontSize: "4.5rem", fontWeight: "bold" }}>{city}</h1>
-        <SearchBar />
+    <>
+      <div className="fc my-navbar">
+        <div>
+          <div>
+            <h1>{props.location}</h1>
+            <p className="p-style ">
+              <span>Oggi è il:</span> {oggi}
+            </p>
+          </div>
+          <SearchBar />
+        </div>
       </div>
-      <p className="ms-2 p-style ">{oggi}</p>
-    </div>
+    </>
   );
 };
 

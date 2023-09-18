@@ -47,7 +47,7 @@ const FirstPage = () => {
         </Form>
       </div>
       {arrLocations.length === 0 ? (
-        <div className="d-flex justify-content-center p-5 gap-3">
+        <div className="waiting d-flex justify-content-center p-5 gap-3">
           <span style={{ fontSize: "22px" }}>Waiting for your locality</span>
           <Spinner animation="border" variant="light" />
         </div>

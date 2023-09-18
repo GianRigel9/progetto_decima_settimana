@@ -2,7 +2,6 @@ const initialState = {
   location: "",
   userInteraction: {
     arrLocations: [],
-    bestResult: {},
     weather: {},
     forecast: {},
     forecast5days: [],
@@ -38,7 +37,6 @@ const mainReducer = (state = initialState, action) => {
         userInteraction: {
           ...state.userInteraction,
           arrLocations: [action.payload],
-          bestResult: action.payload[0],
         },
       };
 

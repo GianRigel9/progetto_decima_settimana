@@ -22,6 +22,10 @@ p {
   gap: 3rem !important;
 }
 
+.page-not-found h1 {
+  text-align: center;
+}
+
 .page-not-found a {
   text-decoration: none;
   color: white;

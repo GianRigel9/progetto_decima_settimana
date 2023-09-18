@@ -1,7 +1,6 @@
 const initialState = {
   location: "",
   userInteraction: {
-    location: "",
     arrLocations: [],
     bestResult: {},
     weather: {},
@@ -21,6 +20,7 @@ const mainReducer = (state = initialState, action) => {
         userInteraction: {
           ...state.userInteraction,
           arrLocations: [],
+          isLoading: !state.userInteraction.isLoading,
         },
       };
     case "ADD_FIVE_DAYS":
@@ -31,22 +31,10 @@ const mainReducer = (state = initialState, action) => {
           fiveDays: [action.payload],
         },
       };
-    case "SET_LOCATION":
-      return {
-        ...state,
-        location: action.payload,
-      };
-    case "IS_LOADING":
-      return {
-        ...state,
-        userInteraction: {
-          ...state.userInteraction,
-          isLoading: !state.userInteraction.isLoading,
-        },
-      };
     case "ADD_ARR_LOCATIONS":
       return {
         ...state,
+        location: action.payload,
         userInteraction: {
           ...state.userInteraction,
           arrLocations: [action.payload],

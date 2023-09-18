@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyMain from "./components/MyMain";
 import FirstPage from "./components/FirstPage";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<FirstPage />} />
           <Route path="/:location/:lat/:lon" element={<MyMain />} />
+          <Route path="/pageNotFound" element={<PageNotFound />} />
         </Routes>
       </Container>
     </BrowserRouter>

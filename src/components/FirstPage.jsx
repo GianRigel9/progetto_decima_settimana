@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { Form, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SelectLocation from "./SelectLocation";
 
 const FirstPage = () => {
   const [query, setQuery] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const arrLocations = useSelector(
     (state) => state.userInteraction.arrLocations
   );
-  // navigate(`/${query}`);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,7 +19,11 @@ const FirstPage = () => {
       const response = await fetch(URL);
       if (response.ok) {
         const myArr = await response.json();
-        dispatch({ type: "ADD_ARR_LOCATIONS", payload: myArr });
+        if (myArr.length !== 0) {
+          dispatch({ type: "ADD_ARR_LOCATIONS", payload: myArr });
+        } else {
+          navigate("/pageNotFound");
+        }
       }
     } catch (error) {
       console.log(error);

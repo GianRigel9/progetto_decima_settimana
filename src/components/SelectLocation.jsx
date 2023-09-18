@@ -15,7 +15,6 @@ const SelectLocation = ({ arrLocations, boolean }) => {
             className={boolean ? "cust-link" : "cust-link-small"}
             onClick={() => {
               dispatch({ type: "EMPTY_ARR_LOCATION" });
-              dispatch({ type: "IS_LOADING" });
             }}
             to={`/${elem.name}/${elem.lat}/${elem.lon}`}
           >
